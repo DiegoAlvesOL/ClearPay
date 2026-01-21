@@ -1,3 +1,6 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using ClearPay.Domain.Merchants;
 
-Console.WriteLine("Hello, World!");
+
+// Código temporário apenas para chamar o teste inicial.
+MerchantTests testeRunner = new MerchantTests();
+testeRunner.RunCreateMerchantTest();
