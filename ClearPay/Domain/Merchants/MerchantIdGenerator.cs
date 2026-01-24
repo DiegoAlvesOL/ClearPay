@@ -3,7 +3,7 @@ namespace ClearPay.Domain.Merchants;
 public class MerchantIdGenerator
 {
     /// <summary>
-    /// Função para gerar o id para ser atribuido no campo merchantId
+    /// Função para gerar o id para ser atribuido no campo merchantId. Este arquivo é chamado dentro do fluxo de cadastro a cada novo cliente.
     /// </summary>
     /// <returns></returns>
     public string Generate()

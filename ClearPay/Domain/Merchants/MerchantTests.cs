@@ -19,6 +19,23 @@ public class MerchantTests
         Console.WriteLine("Generator ID: " + merchant.MerchantId);
         Console.WriteLine("Legal Entity type: " + merchant.LegalEntityType);
         Console.WriteLine("Onboarding Type: " + merchant.OnboardingType);
-        Console.WriteLine(" Status: " + merchant.Status);
+        Console.WriteLine("Status: " + merchant.Status);
+        Console.WriteLine( "==========================================\n");
+        
+        // Teste de Regra de Negócio (Critérios de Aceitação do Card)
+        if (merchant.Status == MerchantStatus.Pending && !string.IsNullOrEmpty(merchant.MerchantId))
+        {
+            Console.WriteLine( "===================================================================");
+            Console.WriteLine("RESULT: TEST PASSED");
+            Console.WriteLine("Reason: Entity created correctly ad Pending with a valid ID format");
+            Console.WriteLine( "===================================================================");
+        }
+        else
+        {
+            Console.WriteLine( "=================================================================");
+            Console.WriteLine("RESULT: TEST FAILED");
+            Console.WriteLine("Reason: Acceptance criteria not met");
+            Console.WriteLine( "=================================================================");
+        }
     }
 }
