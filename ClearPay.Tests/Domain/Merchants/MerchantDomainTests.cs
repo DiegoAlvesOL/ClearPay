@@ -1,3 +1,4 @@
+using ClearPay.Application.DTO;
 using ClearPay.Domain.Merchants;
 
 namespace ClearPay.Tests.Domain.Merchants;
@@ -35,5 +36,48 @@ public class MerchantDomainTests
             Assert.Contains("-", merchant.MerchantId);
             Assert.True(merchant.MerchantId.Length ==13);
         }
+
+        [Fact]
+        public void Should_Create_Merchant_Assigned_With_SoleTrader(){
+            //1. Passando os dados de entrada
+            var request = new CreateMerchantRequest();
+            string expectedType = "SoleTrader";
+            
+            //2. passando a informação para o método.
+            request.LegalEntityType = expectedType;
+            
+            //3. Assert validação
+            Assert.Equal(expectedType, request.LegalEntityType);
+
+
+        }
+        [Fact]
+        public void Should_Create_Merchant_Assigned_With_Company(){
+            //1. Passando os dados de entrada
+            var request = new CreateMerchantRequest();
+            string expectedType = "Company";
+            
+            //2. passando a informação para o método.
+            request.LegalEntityType = expectedType;
+            
+            //3. Assert validação
+            Assert.Equal(expectedType, request.LegalEntityType);
+            
+        }
+        [Fact]
+        public void Should_Create_Merchant_Assigned_With_Individual(){
+            //1. Passando os dados de entrada
+            var request = new CreateMerchantRequest();
+            string expectedType = "Individual";
+            
+            //2. passando a informação para o método.
+            request.LegalEntityType = expectedType;
+            
+            //3. Assert validação
+            Assert.Equal(expectedType, request.LegalEntityType);
+            
+        }
+        
+
     }
 }
