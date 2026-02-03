@@ -22,4 +22,8 @@
       <ProjectReference Include="..\ClearPay\ClearPay.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Api\Controllers\" />
+    </ItemGroup>
+
 </Project>

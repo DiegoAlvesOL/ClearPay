@@ -2,5 +2,5 @@ namespace ClearPay.Application.DTO;
 
 public class FinancialDto
 {
-    public string SettementCurrency { get; set; }
+    public string SettlementCurrency { get; set; }
 }

@@ -1,9 +1,23 @@
-﻿using ClearPay.Domain.Merchants;
+﻿using ClearPay.Application.UseCases;
+using ClearPay.Domain.Merchants;
 
+var builder = WebApplication.CreateBuilder(args);
 
-// Código temporário apenas para chamar o teste inicial.
-MerchantTests testeRunner = new MerchantTests();
-testeRunner.RunCreateMerchantTest();
+//1. Registrando o Controller para que a API funcione
+builder.Services.AddControllers();
 
-DtoTests testDTO = new DtoTests();
-testDTO.RunDtoSimulationTest();
+//2. Registra o caso de uso (Injeção de denpendência)
+builder.Services.AddScoped<CreateMerchantUseCase>();
+
+//3. Registra uma implementação temporária do Repositório (Fake)
+builder.Services.AddSingleton<IMerchantRepository, FakeRepository>();
+
+var app = builder.Build();
+
+app.MapControllers();
+
+app.Run();
+public class FakeRepository : IMerchantRepository 
+{ 
+    public void Add(Merchant merchant) { /* Não faz nada por enquanto */ } 
+}
